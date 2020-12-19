@@ -1,0 +1,31 @@
+@import (reference) '../../styles/variables.less';
+
+.services-page {
+	.services-cards {
+		margin-bottom: 0;
+		padding: 0;
+
+		@media @screen-768 {
+			margin-bottom: @spacing-default*13;
+		}
+	}
+
+	.work-overview {
+		background-color: @lightest-gray;
+		margin-bottom: -@spacing-default;
+		padding: @spacing-default*8 0 0;
+
+		@media @screen-768 {
+			padding: @spacing-default*16 0 @spacing-default*8;
+		}
+	}
+
+	.update-overview {
+		margin-bottom: -@spacing-default;
+		padding: @spacing-default*8 0 0;
+
+		@media @screen-768 {
+			padding: @spacing-default*16 0;
+		}
+	}
+}

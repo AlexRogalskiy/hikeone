@@ -1,0 +1,154 @@
+@import (reference) '../../styles/variables.less';
+
+.page-header {
+	display: flex;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	flex-direction: column;
+	justify-content: flex-end;
+	height: 100vh;
+	overflow: hidden;
+	background-color: @black;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
+
+	&::after {
+		@media @screen-768 {
+			display: none;
+		}
+	}
+}
+
+.page-header--has-gradient::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 80%;
+	background: linear-gradient(0deg, fade(@black, 50%), fade(@black, 0%));
+}
+
+.page-header--show-video::after {
+	@media @screen-768 {
+		display: block;
+	}
+}
+
+.page-header--fixed {
+	position: fixed;
+}
+
+.page-header--hidden {
+	display: none;
+}
+
+.page-header--small {
+	height: 85vh;
+
+	@media @screen-500 {
+		height: 60vh;
+	}
+}
+
+.page-header-inner {
+	display: flex;
+	z-index: @layer-raised;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+	height: 100%;
+	margin-bottom: 0;
+
+	.page-header--small & {
+		justify-content: center;
+	}
+}
+
+.page-header-video {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	transition: opacity @animation-speed;
+	opacity: 0;
+	object-fit: cover;
+	pointer-events: none;
+
+	.page-header--show-video & {
+		opacity: 1;
+	}
+
+	@media @screen-768 {
+		display: block;
+	}
+}
+
+.page-header-title {
+	display: block;
+	color: @white;
+	font-size: @title-large-s;
+	line-height: @line-height-title-s;
+
+	@media @screen-768 {
+		font-size: @title-large-m;
+		line-height: @line-height-title-m;
+	}
+
+	@media @screen-1170 {
+		margin-bottom: @spacing-default*3;
+		font-size: @title-large-l;
+		line-height: @line-height-title-l;
+	}
+}
+
+.page-header-subtitle {
+	display: block;
+	max-width: 800px;
+	margin: 0 auto @spacing-default*2;
+	color: @white;
+	font-size: @subtitle-large-s;
+	font-weight: @font-weight-light;
+	line-height: @line-height-subtitle-s;
+
+	@media @screen-768 {
+		margin-bottom: @spacing-default;
+		font-size: @subtitle-large-m;
+		line-height: @line-height-subtitle-m;
+	}
+
+	@media @screen-1170 {
+		margin-bottom: @spacing-default*5;
+		font-size: @subtitle-large-l;
+		line-height: @line-height-subtitle-l;
+	}
+}
+
+.page-header-button {
+	margin: @spacing-default*2 @spacing-default*5 @spacing-default*8 @spacing-default*5;
+	padding: 0;
+
+	&:enabled:hover,
+	&:enabled:focus {
+		outline: none;
+	}
+
+	.icon {
+		margin: 0;
+
+		svg {
+			display: block;
+			width: 45px;
+			height: 45px;
+		}
+	}
+
+	.page-header--small & {
+		display: none;
+	}
+}

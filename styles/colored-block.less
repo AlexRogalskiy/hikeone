@@ -1,0 +1,82 @@
+@import (reference) 'variables';
+@import (reference) 'shadows';
+
+.colored-block {
+	.shadow();
+
+	margin: 0 0 @spacing-default*5 @spacing-default*1.5;
+	padding: @spacing-default*4 @spacing-default*3 @spacing-default*4 @spacing-default*3;
+	background-color: @blue;
+	color: @white;
+	font-family: @font-alt;
+	font-size: @subtitle-large-s;
+	font-weight: @font-weight-normal;
+	line-height: 35px;
+
+	@media @screen-500 {
+		margin-bottom: @spacing-default*9;
+	}
+
+	@media @screen-768 {
+		padding: @spacing-default*9 @spacing-default*7;
+		font-size: @subtitle-large-m;
+		line-height: @line-height-quote;
+	}
+
+	@media @screen-1024 {
+		margin-bottom: @spacing-default*10;
+	}
+
+	@media @screen-1170 {
+		max-width: @column-large-10;
+		padding: @spacing-default*10 @spacing-default*11;
+		font-size: @quote-large-l;
+		line-height: @line-height-quote;
+	}
+}
+
+.colored-block.blue {
+	background-color: @blue;
+}
+
+.colored-block.red {
+	background-color: @red;
+}
+
+.colored-block.purple {
+	background-color: @purple;
+}
+
+.colored-block.yellow {
+	background-color: @yellow;
+}
+
+.colored-block.green {
+	background-color: @green;
+}
+
+.colored-block.gray {
+	background-color: @gray;
+}
+
+.colored-block.dark-gray {
+	background-color: @darker-gray;
+}
+
+.colored-block--align-left {
+	margin-right: @spacing-default*1.5;
+	margin-left: 0;
+
+	@media @screen-1170 {
+		margin-right: 0;
+	}
+}
+
+.colored-block--align-right {
+	margin-right: 0;
+	margin-left: @spacing-default*1.5;
+
+	@media @screen-1170 {
+		margin-left: auto;
+	}
+}

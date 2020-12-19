@@ -1,0 +1,179 @@
+@import (reference) '../../styles/variables.less';
+
+.menu-bar {
+	align-items: center;
+	display: flex;
+	height: @header-height-s;
+	position: fixed;
+	text-align: center;
+	transition: background-color 0.25s ease-in-out;
+	width: 100%;
+	z-index: @layer-menubar;
+
+	.menu-background-final {
+		opacity: 0;
+	}
+
+	@media @screen-768 {
+		height: @header-height;
+	}
+}
+
+.menu-bar--scrolling {
+	background-color: @white;
+}
+
+.menu-bar--white.menu-bar--scrolling .header-logo .logo-body {
+	fill: @black;
+}
+
+.header-logo-wrapper {
+	display: flex;
+	padding-left: @spacing-default*2;
+
+	@media @screen-768 {
+		padding-left: @spacing-default*4;
+	}
+}
+
+.header-logo {
+	display: inline-block;
+	z-index: 3;
+
+	svg {
+		width: 125px;
+		height: auto;
+	}
+
+	.animation-is-finished & {
+		margin-left: -@spacing-default*1.5;
+		padding: @spacing-default*2 @spacing-default*1.5;
+	}
+
+	.is-open & {
+		@media @screen-768 {
+			margin-top: 0;
+			margin-left: 0;
+			padding: 0;
+			background-color: transparent;
+		}
+	}
+
+	@media @screen-768 {
+		svg {
+			width: 180px;
+		}
+	}
+}
+
+.menu-bar__contact {
+	position: fixed;
+	z-index: 6;
+	top: 24px;
+	right: 70px;
+
+	@media @screen-768 {
+		top: 34px;
+		right: 100px;
+	}
+}
+
+.menu-bar__contact-link {
+	color: @black;
+	font-size: @body-small-s;
+	font-weight: 500;
+	line-height: @line-height-body-small-s;
+	text-decoration: none;
+
+	@media @screen-768 {
+		font-size: @body-small-m;
+		line-height: @line-height-body-small-m;
+	}
+
+	@media @screen-1170 {
+		font-size: @body-small-l;
+		line-height: @line-height-body-small-l;
+	}
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+	.is-open & {
+		display: none;
+	}
+
+	.menu-bar--white & {
+		color: @white;
+	}
+
+	.menu-bar--white.menu-bar--scrolling & {
+		color: @black;
+	}
+}
+
+.menu-btn {
+	position: fixed;
+	z-index: 6;
+	top: 17px;
+	right: 15px;
+	width: 50px;
+	height: 50px;
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	font-size: 0;
+	cursor: pointer;
+
+	@media @screen-768 {
+		right: 25px;
+		top: 25px;
+	}
+
+	&:hover {
+		svg.menu-btn-background {
+			transform: scale(1.2);
+			transition: fill @animation-speed-fast, transform @animation-speed-fast; // hover on
+			fill: @black;
+		}
+
+		.menu-btn-icon svg {
+			transform: scale(1.1);
+			transition: stroke @animation-speed-fast, transform @animation-speed-fast; // hover on
+
+			line {
+				stroke: @white;
+			}
+		}
+	}
+
+	.menu-btn-icon svg {
+		position: relative;
+		width: 30px;
+		height: 30px;
+		margin-top: -8px;
+		transition: stroke @animation-speed-slow, transform @animation-speed-slow; // hover off
+	}
+
+	.is-open & {
+		.menu-btn-icon svg line {
+			stroke: @white;
+		}
+	}
+
+	svg.menu-btn-background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 50px;
+		height: 50px;
+		transition: fill @animation-speed-slow, transform @animation-speed-slow; // hover off
+		fill: @white;
+
+		.is-open & {
+			fill: @black;
+		}
+	}
+}

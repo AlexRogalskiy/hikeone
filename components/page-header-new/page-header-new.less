@@ -1,0 +1,118 @@
+@import (reference) '../../styles/variables';
+
+.page-header-new {
+	display: flex;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	flex-direction: column;
+	justify-content: flex-end;
+	height: 500px;
+	text-align: center;
+}
+
+.page-header-new--basic {
+	height: 85vh;
+
+	@media @screen-500 {
+		height: 60vh;
+	}
+}
+
+.page-header-new__animation {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding: 0 @spacing-default*2;
+	overflow: hidden;
+
+	svg {
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 100%;
+		min-width: 1450px; // Same as svg shape viewBox
+		height: 100%;
+		transform: translateX(-50%);
+	}
+}
+
+.page-header-new__animation-background {
+	height: 100%;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	width: 100%;
+}
+
+.page-header-new__animation-triangle {
+	position: absolute;
+	bottom: -50%;
+	left: -100%;
+	width: 60vw;
+	min-width: 325px;
+	transition: all 0.15s;
+
+	@media @screen-768 {
+		bottom: -500px;
+		left: -575px;
+		width: 35vw;
+	}
+}
+
+.page-header-new__animation-keyframes {
+	animation: triangle-mobile 60s linear infinite;
+
+	@media @screen-768 {
+		animation: triangle-desktop 60s linear infinite;
+	}
+}
+
+@keyframes triangle-mobile {
+	from {
+		transform: translate(0, 0) scale(1);
+	}
+
+	to {
+		transform: translate(350vw, -75vh) scale(1.1);
+	}
+}
+
+@keyframes triangle-desktop {
+	from {
+		transform: translate(0, 0) scale(1);
+	}
+
+	to {
+		transform: translate(135vw, -90vh) scale(1.1);
+	}
+}
+
+.page-header-new__content {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	justify-content: center;
+	margin-bottom: 0;
+	z-index: 0;
+}
+
+.page-header-new__title {
+	display: block;
+	margin: 0;
+	color: @white;
+	font-size: @title-large-s;
+	line-height: @line-height-title-s;
+
+	@media @screen-768 {
+		font-size: @title-large-m;
+		line-height: @line-height-title-m;
+	}
+
+	@media @screen-1170 {
+		font-size: @title-large-l;
+		line-height: @line-height-title-l;
+	}
+}

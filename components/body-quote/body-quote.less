@@ -1,0 +1,50 @@
+@import (reference) '../../styles/variables';
+
+.body-quote {
+	width: 100%;
+	max-width: @column-large-7;
+	margin: 0 auto @spacing-default*4 auto;
+	padding-right: @spacing-default*1.5;
+	padding-left: @spacing-default*1.5;
+	font-size: 21px;
+	font-weight: @font-weight-bold;
+	line-height: 25px;
+	text-align: left;
+
+	@media @screen-768 {
+		margin-bottom: @spacing-default*8;
+		font-size: 26px;
+		line-height: 34px;
+	}
+
+	@media @screen-1024 {
+		position: relative;
+		left: -45px;
+	}
+
+	@media @screen-1170 {
+		padding-left: 0;
+		font-size: 28px;
+		line-height: 36px;
+	}
+}
+
+.body-quote-quotee {
+	display: block;
+	margin-top: @spacing-default / 2;
+	font-size: @body-large-s;
+	font-style: italic;
+	font-weight: @font-weight-normal;
+	line-height: @line-height-body-large-s;
+
+	@media @screen-768 {
+		margin-top: @spacing-default;
+		font-size: @body-large-m;
+		line-height: @line-height-body-large-m;
+	}
+
+	@media @screen-1170 {
+		font-size: @body-large-l;
+		line-height: @line-height-body-large-l;
+	}
+}
